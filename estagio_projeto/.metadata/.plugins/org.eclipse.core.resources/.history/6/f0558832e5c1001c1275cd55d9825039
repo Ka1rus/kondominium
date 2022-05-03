@@ -1,0 +1,10 @@
+package com.apicondominio.models.dtos;
+
+public class TipoDespesaDTO {
+
+	
+	private String nome;
+	private String obsDespesa;
+	private String tipoDespesa;
+	
+}

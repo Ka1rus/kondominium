@@ -1,0 +1,24 @@
+package com.apicondominio.models;
+
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Despesa {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	
+	private LocalDate dataReferencia;
+	private String nomeDespesa;
+	private Double valor;
+	private String descricao;
+	
+	
+	
+}

@@ -1,0 +1,25 @@
+package com.apicondominio.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.apicondominio.models.Despesa;
+import com.apicondominio.repositories.DespesaRepository;
+
+@Service
+public class DespesaService {
+
+	@Autowired
+	private DespesaRepository despesaRepository;
+	
+	public List<Despesa> findAll() {
+		return despesaRepository.findAll();
+	}
+
+	public Despesa create(Despesa despesa) {
+		return despesaRepository.save(despesa);
+	}
+	
+}

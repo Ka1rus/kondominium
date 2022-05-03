@@ -1,0 +1,5 @@
+package com.apicondominio.repositories;
+
+public class TipoDespesaRepository {
+
+}

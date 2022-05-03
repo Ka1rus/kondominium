@@ -1,0 +1,6 @@
+package com.apicondominio.controllers;
+
+@RestController
+public class DespesaController {
+
+}

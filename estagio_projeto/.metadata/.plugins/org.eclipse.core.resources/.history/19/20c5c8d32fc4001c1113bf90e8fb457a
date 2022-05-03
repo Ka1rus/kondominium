@@ -1,0 +1,45 @@
+package com.apicondominio.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import javax.security.auth.x500.X500Principal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.apicondominio.models.Despesa;
+import com.apicondominio.models.TipoDespesa;
+import com.apicondominio.repositories.DespesaRepository;
+import com.apicondominio.repositories.TipoDespesaRepository;
+
+@Service
+public class DespesaService {
+
+	@Autowired
+	private DespesaRepository despesaRepository;
+	
+	@Autowired
+	private TipoDespesaRepository tipoDespesaRepository;
+		
+	public List<Despesa> findAll() {
+		return despesaRepository.findAll();
+	}
+
+	public Optional<Despesa> findById(Integer id) {
+		return despesaRepository.findById(id);
+	}
+	
+	public Despesa create(Despesa despesa) {
+		
+		despesa.getTipoDespesa().stream().forEach(x -> {
+			x.setTipoDespesa(despesa.getTipoDespesa());
+		});
+ 		return despesaRepository.save(despesa);
+	}
+
+	public void delete(Integer id) {
+		despesaRepository.deleteById(id);
+	}
+	
+}

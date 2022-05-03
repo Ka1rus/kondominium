@@ -1,0 +1,48 @@
+package com.apicondominio.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+
+import com.apicondominio.models.TipoDespesa;
+import com.apicondominio.services.TipoDespesaService;
+
+@RestController
+@RequestMapping("/api/tipo_despesa")
+public class TipoDespesaController {
+
+	@Autowired
+	private TipoDespesaService tipoDespesaService;
+	
+	@GetMapping("/listar")
+	@ResponseStatus(HttpStatus.OK)
+	public List<TipoDespesa> findAll() {
+		return tipoDespesaService.findAll();
+	}
+	
+	@GetMapping("/listar/{id}")
+	public TipoDespesa findById(@PathVariable Integer id) {
+		return tipoDespesaService.findById(id).get();
+	}
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public TipoDespesa create(@RequestBody TipoDespesa tipoDespesa) {
+		return tipoDespesaService.create(tipoDespesa);
+	}
+	
+	@DeleteMapping("/deletar/{id}")
+	public void delete(@PathVariable Integer id) {
+		tipoDespesaService.delete(id);
+	}
+	
+}

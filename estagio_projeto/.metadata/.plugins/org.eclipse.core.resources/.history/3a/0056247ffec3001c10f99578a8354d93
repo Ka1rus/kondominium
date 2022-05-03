@@ -1,0 +1,40 @@
+package com.apicondominio.controllers;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+
+import com.apicondominio.models.Despesa;
+import com.apicondominio.models.dtos.DespesaDTO;
+import com.apicondominio.services.DespesaService;
+
+@RestController
+@RequestMapping("/api/despesa")
+public class DespesaController {
+
+	@Autowired
+	private DespesaService despesaService;
+	
+	@GetMapping
+	@ResponseStatus(HttpStatus.OK)
+	public List<Despesa> findAll() {
+		return despesaService.findAll();
+	}
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public Despesa create(@RequestBody Despesa despesa) {
+		return despesaService.create(despesa);
+	}
+	
+}

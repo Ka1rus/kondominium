@@ -1,0 +1,19 @@
+package com.apicondominio.models.dtos;
+
+import java.util.List;
+
+import javax.validation.constraints.NotNull;
+
+import com.apicondominio.models.TipoDespesa;
+
+public class DespesaDTO {
+
+	@NotNull
+	private String nomeDespesa;
+	@NotNull
+	private Double valor;
+	@NotNull
+	private String descricao;
+	@NotNull
+	private List<TipoDespesa> tipoDespesas;
+}

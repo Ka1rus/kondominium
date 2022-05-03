@@ -1,0 +1,14 @@
+package com.apicondominio.repositories;
+
+import org.springframework.stereotype.Repository;
+
+import com.apicondominio.models.TipoDespesa;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+@Repository
+public interface TipoDespesaRepository extends JpaRepository<TipoDespesa, Integer>{
+
+}
