@@ -20,13 +20,11 @@ public class BlocoController {
     @Autowired
     private BlocoService blocoService;
 
-
     @GetMapping("/{id}")
     public ResponseEntity<BlocoDTO> findById(@PathVariable Integer id) {
         Bloco obj = blocoService.findById(id);
         return ResponseEntity.ok().body(new BlocoDTO(obj));
     }
-
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

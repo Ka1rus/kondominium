@@ -1,6 +1,9 @@
 package com.apicondominio.models.exceptions;
 
+import lombok.experimental.FieldDefaults;
+
 import java.time.LocalDate;
+import java.util.List;
 
 public class ApiError{
     
